@@ -66,7 +66,7 @@ public final class MetricsProvider: MetricsFactory {
         guard let counter = handler as? CounterMetric else {
             return
         }
-        Task {
+        asyncScheduler.schedule {
             await counter.metric.removeFromObserver()
         }
     }
@@ -75,7 +75,7 @@ public final class MetricsProvider: MetricsFactory {
         guard let recorder = handler as? RecorderMetric else {
             return
         }
-        Task {
+        asyncScheduler.schedule {
             await recorder.metric.removeFromObserver()
         }
     }
@@ -84,7 +84,7 @@ public final class MetricsProvider: MetricsFactory {
         guard let recorder = handler as? RecorderMetric else {
             return
         }
-        Task {
+        asyncScheduler.schedule {
             await recorder.metric.removeFromObserver()
         }
     }
