@@ -6,8 +6,11 @@ final class RecorderMetric: RecorderHandler {
 
     let metric: Metric<Double>
 
-    init(_ metric: Metric<Double>) {
+    let scheduler: AsyncScheduler
+
+    init(_ metric: Metric<Double>, scheduler: AsyncScheduler) {
         self.metric = metric
+        self.scheduler = scheduler
     }
 
     func record(_ value: Int64) {
@@ -15,8 +18,8 @@ final class RecorderMetric: RecorderHandler {
     }
 
     func record(_ value: Double) {
-        Task {
-            try await metric.update(value)
+        scheduler.schedule {
+            try await self.metric.update(value)
         }
     }
 }
