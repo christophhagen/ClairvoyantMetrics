@@ -11,8 +11,8 @@ let package = Package(
             targets: ["ClairvoyantMetrics"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/christophhagen/Clairvoyant", from: "0.7.0"),
-        .package(url: "https://github.com/apple/swift-metrics.git", from: "2.3.0"),
+        .package(url: "https://github.com/christophhagen/Clairvoyant", from: "0.9.2"),
+        .package(url: "https://github.com/apple/swift-metrics.git", from: "2.4.0"),
     ],
     targets: [
         .target(
