@@ -66,26 +66,20 @@ public final class MetricsProvider: MetricsFactory {
         guard let counter = handler as? CounterMetric else {
             return
         }
-        asyncScheduler.schedule {
-            await counter.metric.removeFromObserver()
-        }
+        observer.remove(counter.metric)
     }
 
     public func destroyRecorder(_ handler: RecorderHandler) {
         guard let recorder = handler as? RecorderMetric else {
             return
         }
-        asyncScheduler.schedule {
-            await recorder.metric.removeFromObserver()
-        }
+        observer.remove(recorder.metric)
     }
 
     public func destroyTimer(_ handler: TimerHandler) {
         guard let recorder = handler as? RecorderMetric else {
             return
         }
-        asyncScheduler.schedule {
-            await recorder.metric.removeFromObserver()
-        }
+        observer.remove(recorder.metric)
     }
 }
