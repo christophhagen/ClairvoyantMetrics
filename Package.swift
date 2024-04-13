@@ -13,6 +13,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/christophhagen/Clairvoyant", from: "0.11.2"),
         .package(url: "https://github.com/apple/swift-metrics.git", from: "2.4.0"),
+        .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.0.0"),
     ],
     targets: [
         .target(
